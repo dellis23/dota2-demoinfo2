@@ -21,7 +21,7 @@ generated_proto/%.pb.cc: %.proto
 	protoc ${PROTO_SRC_FILES} ${PROTOBUF_FLAGS} -I. --cpp_out=generated_proto
 
 ${EXECUTABLE}: ${PROTO_OBJ_FILES} ${OBJ_FILES}
-	g++ ${LD_FLAGS} -o $@ ${OBJ_FILES} ${PROTO_OBJ_FILES}
+        g++ -o $@ ${OBJ_FILES} ${PROTO_OBJ_FILES} ${LD_FLAGS}
 
 .cpp.o: ${CPP_FILES}
 	g++ ${CC_FLAGS} -c -o $@ $<
